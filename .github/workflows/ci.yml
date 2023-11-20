@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job_sample:
+    runs-on: ubuntu-latest # type of runner that the job will run on
+
+  steps:
+    - uses: actions/checkout@v3
+
+    # runs a single command using the runners' shell
+    - name: Run a one-line script
+      run:
+        echo Hello World
+
+    # runs a set of commands using the runners' shell
+    # ,로 구분하고 있음
+    - name: Run a multi-line script
+      run:
+        echo Add other actions to build,
+        echo test, and deploy your project.
