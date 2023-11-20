@@ -180,7 +180,7 @@ jobs:
   * cf) lintDebug 관련 이슈
     https://github.com/actions/starter-workflows/issues/171
     * gradle 환경 설정한 곳과 같은 계층에 다음 코드를 추가
-    * 권한 설정을 변경하기 위함
+    * 권한 설정을 변경하기 위함. 반드시 순서는 gradle setup 이후 본격적 작업 이전에 위치시켜야 함
     ```
     - name: Make gradlew executable
       run: chmod +x ./gradlew
