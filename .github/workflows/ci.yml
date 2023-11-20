@@ -11,18 +11,18 @@ jobs:
   job_sample:
     runs-on: ubuntu-latest # type of runner that the job will run on
 
-  steps:
-    - name: Check out code base
-      uses: actions/checkout@v4
+    steps:
+      - name: Check out code base
+        uses: actions/checkout@v4
 
-    # runs a single command using the runners' shell
-    - name: Run a one-line script
-      run:
-        echo Hello World
+      # runs a single command using the runners' shell
+      - name: Run a one-line script
+        run:
+          echo Hello World
 
-    # runs a set of commands using the runners' shell
-    # ,로 구분하고 있음
-    - name: Run a multi-line script
-      run:
-        echo Add other actions to build,
-        echo test, and deploy your project.
+      # runs a set of commands using the runners' shell
+      # ,로 구분하고 있음
+      - name: Run a multi-line script
+        run:
+          echo Add other actions to build,
+          echo test, and deploy your project.

@@ -80,21 +80,22 @@
     workflow_dispatch:
     
     jobs:
-    job_sample:
-    runs-on: ubuntu-latest # type of runner that the job will run on
-    
-    steps:
-      - uses: actions/checkout@v3
-  
-      # runs a single command using the runners' shell
-      - name: Run a one-line script
-        run:
-          echo Hello World
-  
-      # runs a set of commands using the runners' shell
-      # ,로 구분하고 있음
-      - name: Run a multi-line script
-        run:
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      job_sample:
+        runs-on: ubuntu-latest # type of runner that the job will run on
+        
+        # steps는 runs-on과 같은 계층에 있어야 하며, job명 하위에 존재해야 한다.
+        steps: 
+          - uses: actions/checkout@v3
+      
+          # runs a single command using the runners' shell
+          - name: Run a one-line script
+            run:
+              echo Hello World
+      
+          # runs a set of commands using the runners' shell
+          # ,로 구분하고 있음
+          - name: Run a multi-line script
+            run:
+              echo Add other actions to build,
+              echo test, and deploy your project.
     ```
