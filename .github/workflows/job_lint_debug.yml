@@ -1,10 +1,7 @@
-name: CI
+name: Lint Debug
 
 on:
-  push:
-    branches: [ "main" ] # main branch로 push 이벤트 발생 시, 액션 시작. "또는"
-  pull_request:
-    branches: [ "main" ] # main branch로 pull_request 이벤트 발생 시, 액션 시작
+  workflow_call:
 
 jobs:
 #  job_sample:

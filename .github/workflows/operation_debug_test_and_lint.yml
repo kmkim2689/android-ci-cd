@@ -1,0 +1,20 @@
+# 이미 만들어진 job들을 재사용하여 조합하는 방법
+# 재사용 시 주의할 점 : 재사용의 대상이 되는 job의 on은 workflow_call로 반드시 변경을 해주어야 한다.
+# https://www.daleseo.com/github-actions-triggers/
+name: On Pull Request Opened
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  # 아래의 두 작업들은 별도의 조치가 없다면 병렬적으로 실행된다.
+  # 만약 순서를 정하고 싶다면, job에 needs를 추가한다. needs로 이전 작업의 이름을 명시하면 순차적으로 수행 가능
+  lint:
+    name: Lint Debug
+    uses: ./.github/workflows/job_lint_debug.yml # particular file we want to use
+
+  test:
+    name: Test Debug Variant
+    # needs: lint
+    uses: ./.github/workflows/job_test_debug.yml
