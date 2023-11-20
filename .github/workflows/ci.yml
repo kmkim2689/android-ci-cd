@@ -12,7 +12,8 @@ jobs:
     runs-on: ubuntu-latest # type of runner that the job will run on
 
   steps:
-    - uses: actions/checkout@v4
+    - name: Check out code base
+      uses: actions/checkout@v4
 
     # runs a single command using the runners' shell
     - name: Run a one-line script
