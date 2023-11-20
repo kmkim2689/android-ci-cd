@@ -162,8 +162,8 @@ jobs:
   ```
   - uses: actions/setup-java@v3
     with:
-    distribution: 'temurin' # See 'Supported distributions' for available options
-    java-version: '17' # 주의 : 자바 버전은 gradle에서 설정된 것과 동일해야 한다. gradle에서 1.8로 되어있으면 8로 설정
+      distribution: 'temurin' # See 'Supported distributions' for available options
+      java-version: '17' # 주의 : 자바 버전은 gradle에서 설정된 것과 동일해야 한다. gradle에서 1.8로 되어있으면 8로 설정
   ```
   
   ```
@@ -177,3 +177,11 @@ jobs:
   * with
     * parameters for running `uses` properly
   
+  * cf) lintDebug 관련 이슈
+    https://github.com/actions/starter-workflows/issues/171
+    * gradle 환경 설정한 곳과 같은 계층에 다음 코드를 추가
+    * 권한 설정을 변경하기 위함
+    ```
+    - name: Make gradlew executable
+      run: chmod +x ./gradlew
+    ```
