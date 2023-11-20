@@ -6,23 +6,42 @@ on:
   pull_request:
     branches: [ "main" ] # main branch로 pull_request 이벤트 발생 시, 액션 시작
 
-
 jobs:
-  job_sample:
-    runs-on: ubuntu-latest # type of runner that the job will run on
+#  job_sample:
+#    runs-on: ubuntu-latest # type of runner that the job will run on
+#
+#    steps:
+#      - name: Check out code base
+#        uses: actions/checkout@v4
+#
+#      # runs a single command using the runners' shell
+#      - name: Run a one-line script
+#        run:
+#          echo Hello World
+#
+#      # runs a set of commands using the runners' shell
+#      # ,로 구분하고 있음
+#      - name: Run a multi-line script
+#        run:
+#          echo Add other actions to build,
+#          echo test, and deploy your project.
+
+  lint:
+    name: Linting debug variant
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Check out code base
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v3
 
-      # runs a single command using the runners' shell
-      - name: Run a one-line script
-        run:
-          echo Hello World
+      # Android Specific thing(java)
+      - uses: actions/setup-java@v3
+        with:
+        distribution: 'temurin' # See 'Supported distributions' for available options
+        java-version: '17'
 
-      # runs a set of commands using the runners' shell
-      # ,로 구분하고 있음
-      - name: Run a multi-line script
-        run:
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      # Android Specific thing(gradle)
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+
+      - name: Execute Gradle Lint Debug
+        run: ./gradlew lintDebug
