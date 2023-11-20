@@ -1,14 +1,18 @@
 name: CI
 
 on:
-  workflow_dispatch:
+  push:
+    branches: [ "main" ] # main branch로 push 이벤트 발생 시, 액션 시작. "또는"
+  pull_request:
+    branches: [ "main" ] # main branch로 pull_request 이벤트 발생 시, 액션 시작
+
 
 jobs:
   job_sample:
     runs-on: ubuntu-latest # type of runner that the job will run on
 
   steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     # runs a single command using the runners' shell
     - name: Run a one-line script

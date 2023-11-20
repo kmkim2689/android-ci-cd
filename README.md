@@ -54,8 +54,8 @@
     * 모든 job에는 일련의 step이 필요하다. `-` 문자열로 각 스텝을 명시한다.
     * step에서는 일반적으로 repository의 코드 베이스를 체크하는 과정이 필요하다. 따라서 job이 코드에 엑세스할 수 있도록 해야 한다.
       * yaml 파일이 프로젝트에 존재하기는 하지만, 직접 액션 파일에서 머신(여기서는 우분투)이 코드베이스를 실행할 수 있도록 하는 과정이 필요하다.
-        `- uses: actions/checkout@v3`
-      * 깃허브 마켓플레이스에서 checkout을 검색하면 나오는 checkout action을 활용(서드 파티 라이브러리)
+        `- uses: actions/checkout@v4`
+      * `uses` : 서드파티 라이브러리 활용을 위함 - 깃허브 마켓플레이스에서 checkout을 검색하면 나오는 checkout action을 활용
         * 안드로이드 프로젝트에서 다른 라이브러리를 import하는 것과 같은 원리
       * https://github.com/marketplace/actions/checkout
       ```
